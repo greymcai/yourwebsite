@@ -145,12 +145,13 @@
     </div>
 
     <div class="form-container">
-      <form id="onboardingForm" action="https://formsubmit.co/greymc041.ai@gmail.com" method="POST" novalidate>
+      <form id="onboardingForm" action="https://formsubmit.co/greymc041.ai@gmail.com" method="POST">
         <!-- FormSubmit config -->
         <input type="hidden" name="_subject" id="_subject" value=""/>
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
-        <!-- Clean inline success page -->
+        <input type="hidden" name="_to" value="greymc041.ai@gmail.com">
+        <!-- Clean inline success page (avoids 404 by not relying on your domain) -->
         <input type="hidden" name="_next" value="data:text/html,<html><head><title>Success</title></head><body style='font-family:Arial,sans-serif;text-align:center;padding:50px;background:linear-gradient(135deg,%23667eea%200%25,%23764ba2%20100%25);color:white;'><div style='background:white;color:%23333;padding:40px;border-radius:20px;box-shadow:0%2020px%2040px%20rgba(0,0,0,0.1);max-width:520px;margin:0%20auto;'><h2 style='color:%234f46e5;margin-bottom:20px;'>✅ Thank You!</h2><p style='font-size:18px;margin-bottom:30px;'>Your website project details have been submitted successfully. You'll receive an email with instructions on how to upload your images and logo.</p><button onclick='window.close()' style='background:%234f46e5;color:white;border:none;padding:15px%2030px;border-radius:8px;font-size:16px;cursor:pointer;'>Close Window</button></div></body></html>">
         <!-- Honeypot -->
         <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off"/>
