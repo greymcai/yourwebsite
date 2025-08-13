@@ -1,697 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Project Onboarding</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .form-container {
-            padding: 40px 30px;
-        }
-        
-        .form-section {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #e2e8f0;
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: #1e293b;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #374151;
-        }
-        
-        .required {
-            color: #ef4444;
-        }
-        
-        select, input, textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.2s;
-        }
-        
-        select:focus, input:focus, textarea:focus {
-            outline: none;
-            border-color: #4f46e5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 20px;
-        }
-        
-        .submit-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .success-message {
-            background: #d1fae5;
-            border: 2px solid #a7f3d0;
-            border-radius: 10px;
-            padding: 20px;
-            color: #065f46;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .error-message {
-            background: #fef2f2;
-            border: 2px solid #fca5a5;
-            border-radius: 10px;
-            padding: 20px;
-            color: #991b1b;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .setup-notice {
-            background: #fef3c7;
-            border: 2px solid #fbbf24;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            color: #92400e;
-        }
-        
-        .setup-notice h3 {
-            margin-bottom: 10px;
-            color: #78350f;
-        }
-        
-        .setup-notice ol {
-            margin-left: 20px;
-        }
-        
-        .setup-notice li {
-            margin-bottom: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Project Onboarding</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .header p { font-size: 1.1rem; opacity: 0.9; }
+
+    .form-container { padding: 40px 30px; }
+
+    .form-section {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid #e2e8f0;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: #1e293b;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .required { color: #ef4444; }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.2s;
+      background: #fff;
+    }
+
+    select:focus, input:focus, textarea:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .error-message {
+      background: #fef2f2;
+      border: 2px solid #fca5a5;
+      border-radius: 10px;
+      padding: 16px;
+      color: #991b1b;
+      display: none;
+      margin-top: 16px;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🚀 Website Project Onboarding</h1>
-            <p>Tell us about your project and we'll create a custom website prompt for you</p>
-        </div>
-        
-        <div class="form-container">
-            <form id="onboardingForm" action="https://formsubmit.co/greymc041.ai@gmail.com" method="POST" enctype="multipart/form-data">
-                <!-- FormSubmit configuration fields -->
-                <input type="hidden" name="_subject" value="New Website Project Onboarding">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="data:text/html,<html><head><title>Success</title></head><body style='font-family:Arial,sans-serif;text-align:center;padding:50px;background:linear-gradient(135deg,%23667eea%200%25,%23764ba2%20100%25);color:white;'><div style='background:white;color:%23333;padding:40px;border-radius:20px;box-shadow:0%2020px%2040px%20rgba(0,0,0,0.1);max-width:500px;margin:0%20auto;'><h2 style='color:%234f46e5;margin-bottom:20px;'>✅ Thank You!</h2><p style='font-size:18px;margin-bottom:30px;'>Your website project details have been submitted successfully. We'll review your information and get back to you soon!</p><button onclick='window.close()' style='background:%234f46e5;color:white;border:none;padding:15px%2030px;border-radius:8px;font-size:16px;cursor:pointer;'>Close Window</button></div></body></html>">
-                <!-- Website Configuration -->
-                <div class="form-section">
-                    <h3 class="section-title">🌐 Website Configuration</h3>
-                    
-                    <div class="form-group">
-                        <label>Website Type <span class="required">*</span></label>
-                        <select name="websiteType" required>
-                            <option value="">Select website type</option>
-                            <option value="E-commerce store">E-commerce store</option>
-                            <option value="Business landing page">Business landing page</option>
-                            <option value="Portfolio website">Portfolio website</option>
-                            <option value="Blog/Magazine">Blog/Magazine</option>
-                            <option value="SaaS application">SaaS application</option>
-                            <option value="Restaurant website">Restaurant website</option>
-                            <option value="Real estate platform">Real estate platform</option>
-                            <option value="Educational platform">Educational platform</option>
-                            <option value="Non-profit organization">Non-profit organization</option>
-                            <option value="Creative agency">Creative agency</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Business Name/Purpose <span class="required">*</span></label>
-                        <input type="text" name="businessName" placeholder="e.g., TechCorp Solutions, Sarah's Photography" required>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Target Audience <span class="required">*</span></label>
-                            <select name="targetAudience" required>
-                                <option value="">Select target audience</option>
-                                <option value="Young professionals (25-35)">Young professionals (25-35)</option>
-                                <option value="Small business owners">Small business owners</option>
-                                <option value="Creative professionals">Creative professionals</option>
-                                <option value="Tech-savvy millennials">Tech-savvy millennials</option>
-                                <option value="Luxury consumers">Luxury consumers</option>
-                                <option value="Local community members">Local community members</option>
-                                <option value="B2B decision makers">B2B decision makers</option>
-                                <option value="Students and educators">Students and educators</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Design Style <span class="required">*</span></label>
-                            <select name="designStyle" onchange="toggleCustomDesignStyle()" required>
-                                <option value="">Select design style</option>
-                                <option value="Minimalist and clean">Minimalist and clean</option>
-                                <option value="Bold and vibrant">Bold and vibrant</option>
-                                <option value="Dark mode with neon accents">Dark mode with neon accents</option>
-                                <option value="Glassmorphism with translucent elements">Glassmorphism with translucent elements</option>
-                                <option value="Brutalist with strong typography">Brutalist with strong typography</option>
-                                <option value="Elegant and sophisticated">Elegant and sophisticated</option>
-                                <option value="Playful and colorful">Playful and colorful</option>
-                                <option value="Corporate and professional">Corporate and professional</option>
-                                <option value="custom">🎨 Custom Design Style</option>
-                            </select>
-                            <input type="text" name="customDesignStyle" placeholder="Describe your preferred design style" style="display: none; margin-top: 10px;">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Brand Colors/Theme <span class="required">*</span></label>
-                        <select name="brandColorsSelect" onchange="toggleCustomColors()" required>
-                            <option value="">Select a color theme</option>
-                            <option value="Deep ocean blue and coral orange">Deep Ocean Blue & Coral Orange</option>
-                            <option value="Forest green and cream white">Forest Green & Cream White</option>
-                            <option value="Rich purple and gold accent">Rich Purple & Gold Accent</option>
-                            <option value="Charcoal gray and electric blue">Charcoal Gray & Electric Blue</option>
-                            <option value="Burgundy red and champagne gold">Burgundy Red & Champagne Gold</option>
-                            <option value="Navy blue and silver">Navy Blue & Silver</option>
-                            <option value="Emerald green and white">Emerald Green & White</option>
-                            <option value="Warm orange and deep brown">Warm Orange & Deep Brown</option>
-                            <option value="Teal and light gray">Teal & Light Gray</option>
-                            <option value="Rose gold and blush pink">Rose Gold & Blush Pink</option>
-                            <option value="Black and neon green">Black & Neon Green</option>
-                            <option value="Sky blue and sunny yellow">Sky Blue & Sunny Yellow</option>
-                            <option value="Minimalist black and white">Minimalist Black & White</option>
-                            <option value="Sunset gradient orange to pink">Sunset Gradient (Orange to Pink)</option>
-                            <option value="Cool mint green and white">Cool Mint Green & White</option>
-                            <option value="custom">🎨 Custom Colors</option>
-                        </select>
-                        <input type="text" name="customBrandColors" placeholder="Enter your custom colors" style="display: none; margin-top: 10px;">
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Image Theme</label>
-                            <select name="imageTheme" onchange="toggleCustomImageTheme()">
-                                <option value="">Select image theme</option>
-                                <option value="Professional business photography">Professional business photography</option>
-                                <option value="Lifestyle and candid shots">Lifestyle and candid shots</option>
-                                <option value="Product-focused commercial photography">Product-focused commercial photography</option>
-                                <option value="Clean and minimalist visuals">Clean and minimalist visuals</option>
-                                <option value="Vibrant and energetic imagery">Vibrant and energetic imagery</option>
-                                <option value="Natural and organic aesthetics">Natural and organic aesthetics</option>
-                                <option value="Tech and innovation focused">Tech and innovation focused</option>
-                                <option value="Artistic and creative visuals">Artistic and creative visuals</option>
-                                <option value="custom">📸 Custom Image Theme</option>
-                            </select>
-                            <input type="text" name="customImageTheme" placeholder="Describe your preferred image style" style="display: none; margin-top: 10px;">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Brand Aesthetic</label>
-                            <select name="brandAesthetic">
-                                <option value="">Select brand aesthetic</option>
-                                <option value="Modern and sleek">Modern and sleek</option>
-                                <option value="Warm and approachable">Warm and approachable</option>
-                                <option value="Luxury and premium">Luxury and premium</option>
-                                <option value="Fun and playful">Fun and playful</option>
-                                <option value="Professional and trustworthy">Professional and trustworthy</option>
-                                <option value="Edgy and alternative">Edgy and alternative</option>
-                                <option value="Classic and timeless">Classic and timeless</option>
-                                <option value="Innovative and futuristic">Innovative and futuristic</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Schema Type</label>
-                            <select name="schemaType">
-                                <option value="">Select schema type</option>
-                                <option value="LocalBusiness">LocalBusiness</option>
-                                <option value="Product/Offer">Product/Offer</option>
-                                <option value="Article/BlogPosting">Article/BlogPosting</option>
-                                <option value="Organization">Organization</option>
-                                <option value="Restaurant">Restaurant</option>
-                                <option value="Event">Event</option>
-                                <option value="Course">Course</option>
-                                <option value="Review">Review</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Primary Keywords</label>
-                            <input type="text" name="primaryKeywords" placeholder="e.g., web development, digital marketing">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- About Your Business -->
-                <div class="form-section">
-                    <h3 class="section-title">🏢 About Your Business</h3>
-                    
-                    <div class="form-group">
-                        <label>Business Description <span class="required">*</span></label>
-                        <textarea name="businessDescription" placeholder="Tell us about your business - what you do, your mission, values, and what makes you unique..." rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Years in Business</label>
-                            <select name="yearsInBusiness">
-                                <option value="">Select years</option>
-                                <option value="Just starting">Just starting</option>
-                                <option value="Less than 1 year">Less than 1 year</option>
-                                <option value="1-2 years">1-2 years</option>
-                                <option value="3-5 years">3-5 years</option>
-                                <option value="6-10 years">6-10 years</option>
-                                <option value="11-20 years">11-20 years</option>
-                                <option value="More than 20 years">More than 20 years</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Number of Employees</label>
-                            <select name="numberOfEmployees">
-                                <option value="">Select size</option>
-                                <option value="Just me (Solo)">Just me (Solo)</option>
-                                <option value="2-5 employees">2-5 employees</option>
-                                <option value="6-10 employees">6-10 employees</option>
-                                <option value="11-25 employees">11-25 employees</option>
-                                <option value="26-50 employees">26-50 employees</option>
-                                <option value="51-100 employees">51-100 employees</option>
-                                <option value="100+ employees">100+ employees</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>What makes your business unique?</label>
-                        <textarea name="uniqueSellingPoints" placeholder="What sets you apart from competitors? Special certifications, awards, unique approach, etc..." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Business Goals for the Website</label>
-                        <textarea name="businessGoals" placeholder="What do you want to achieve with this website? Increase sales, generate leads, build brand awareness, etc..." rows="3"></textarea>
-                    </div>
-                </div>
-                
-                <!-- Products or Services -->
-                <div class="form-section">
-                    <h3 class="section-title">💼 Products or Services</h3>
-                    
-                    <div class="form-group">
-                        <label>Primary Products/Services <span class="required">*</span></label>
-                        <textarea name="primaryProducts" placeholder="List and describe your main products or services. Include pricing if applicable..." rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Featured/Best-Selling Items</label>
-                        <textarea name="featuredItems" placeholder="What are your top 3-5 products/services you want to highlight on the website?" rows="3"></textarea>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Service Areas/Locations</label>
-                            <input type="text" name="serviceAreas" placeholder="e.g., New York City, Nationwide, Worldwide">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Pricing Structure</label>
-                            <select name="pricingStructure">
-                                <option value="">Select pricing type</option>
-                                <option value="Fixed pricing">Fixed pricing</option>
-                                <option value="Hourly rates">Hourly rates</option>
-                                <option value="Package deals">Package deals</option>
-                                <option value="Subscription/Monthly">Subscription/Monthly</option>
-                                <option value="Custom quotes">Custom quotes</option>
-                                <option value="Free consultation">Free consultation</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Special Offers or Promotions</label>
-                        <textarea name="specialOffers" placeholder="Any current promotions, discounts, or special deals you want to feature?" rows="2"></textarea>
-                    </div>
-                </div>
-                
-                <!-- Upload Images and Logo -->
-                <div class="form-section">
-                    <h3 class="section-title">🖼️ Images and Logo Upload</h3>
-                    
-                    <div class="form-group">
-                        <label>Business Logo</label>
-                        <input type="file" name="businessLogo" accept="image/*,.pdf" id="logoUpload">
-                        <small style="color: #6b7280; font-size: 14px;">Upload your logo (PNG, JPG, PDF - max 10MB)</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Product/Service Images</label>
-                        <input type="file" name="productImages" accept="image/*,.pdf" multiple id="productUpload">
-                        <small style="color: #6b7280; font-size: 14px;">Upload photos of your products, services, team, or workspace (multiple files allowed)</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Additional Brand Materials</label>
-                        <input type="file" name="brandMaterials" accept="image/*,.pdf,.doc,.docx" multiple id="brandUpload">
-                        <small style="color: #6b7280; font-size: 14px;">Business cards, brochures, existing marketing materials, brand guidelines, etc.</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Image Description/Notes</label>
-                        <textarea name="imageNotes" placeholder="Describe the uploaded images, specify which ones to use for hero section, gallery, etc..." rows="3"></textarea>
-                    </div>
-                </div>
-                
-                <!-- Contact Information -->
-                <div class="form-section">
-                    <h3 class="section-title">📞 Contact Information</h3>
-                    
-                    <div class="form-group">
-                        <label>Business Address <span class="required">*</span></label>
-                        <input type="text" name="businessAddress" placeholder="Full address as it appears on Google Maps (123 Main St, City, State, ZIP, Country)" required>
-                        <small style="color: #6b7280; font-size: 14px;">Enter complete address for Google Maps integration and local SEO</small>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Phone Number <span class="required">*</span></label>
-                            <input type="text" name="phoneNumber" placeholder="+1 (555) 123-4567" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Email Address <span class="required">*</span></label>
-                            <input type="email" name="emailAddress" placeholder="contact@yourbusiness.com" required>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Business Hours</label>
-                            <textarea name="businessHours" placeholder="Mon-Fri: 9AM-6PM&#10;Saturday: 10AM-4PM&#10;Sunday: Closed" rows="3"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Secondary Phone</label>
-                            <input type="text" name="secondaryPhone" placeholder="Mobile, fax, or alternate number">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Website URL</label>
-                        <input type="url" name="websiteUrl" placeholder="https://www.yourbusiness.com">
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Facebook Page</label>
-                            <input type="url" name="facebookUrl" placeholder="https://facebook.com/yourbusiness">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Twitter/X Profile</label>
-                            <input type="url" name="twitterUrl" placeholder="https://twitter.com/yourbusiness">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Instagram Profile</label>
-                        <input type="url" name="instagramUrl" placeholder="https://instagram.com/yourbusiness">
-                    </div>
-                </div>
-                
-                <!-- Additional Requirements -->
-                <div class="form-section">
-                    <h3 class="section-title">📝 Additional Details</h3>
-                    
-                    <div class="form-group">
-                        <label>Additional Requirements</label>
-                        <textarea name="additionalRequirements" placeholder="Any specific features, integrations, or requirements..." rows="4"></textarea>
-                    </div>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    🚀 Submit & Generate Prompt
-                </button>
-            </form>
-            
-            <div id="successMessage" class="success-message">
-                <h3>✅ Success!</h3>
-                <p>Your website prompt has been generated and sent to <strong>greymc041.ai@gmail.com</strong></p>
-                <p>You should receive the email within a few minutes.</p>
-            </div>
-            
-            <div id="errorMessage" class="error-message">
-                <h3>❌ Error</h3>
-                <p id="errorText">Something went wrong. Please try again.</p>
-            </div>
-            
-            <!-- Preview Section removed - now sends real emails -->
-            <!-- Remove this entire section in production -->
-        </div>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 Website Project Onboarding</h1>
+      <p>Tell us about your project and we'll create a custom website prompt for you</p>
     </div>
 
-    <script>
-        // Wait for EmailJS to load before initializing
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize EmailJS with your credentials
-            if (typeof emailjs !== 'undefined') {
-                emailjs.init("4hucoivZ5uOzAm6xA");
-            } else {
-                console.error('EmailJS library failed to load');
-            }
-        });
-        
-        function toggleCustomColors() {
-            const select = document.querySelector('select[name="brandColorsSelect"]');
-            const customInput = document.querySelector('input[name="customBrandColors"]');
-            
-            if (select.value === 'custom') {
-                customInput.style.display = 'block';
-                customInput.setAttribute('required', 'true');
-                customInput.focus();
-            } else {
-                customInput.style.display = 'none';
-                customInput.removeAttribute('required');
-                customInput.value = '';
-            }
-        }
-        
-        function toggleCustomTargetAudience() {
-            const select = document.querySelector('select[name="targetAudience"]');
-            const customInput = document.querySelector('input[name="customTargetAudience"]');
-            
-            if (select.value === 'custom') {
-                customInput.style.display = 'block';
-                customInput.setAttribute('required', 'true');
-                customInput.focus();
-            } else {
-                customInput.style.display = 'none';
-                customInput.removeAttribute('required');
-                customInput.value = '';
-            }
-        }
-        
-        function toggleCustomDesignStyle() {
-            const select = document.querySelector('select[name="designStyle"]');
-            const customInput = document.querySelector('input[name="customDesignStyle"]');
-            
-            if (select.value === 'custom') {
-                customInput.style.display = 'block';
-                customInput.setAttribute('required', 'true');
-                customInput.focus();
-            } else {
-                customInput.style.display = 'none';
-                customInput.removeAttribute('required');
-                customInput.value = '';
-            }
-        }
-        
-        function toggleCustomImageTheme() {
-            const select = document.querySelector('select[name="imageTheme"]');
-            const customInput = document.querySelector('input[name="customImageTheme"]');
-            
-            if (select.value === 'custom') {
-                customInput.style.display = 'block';
-                customInput.focus();
-            } else {
-                customInput.style.display = 'none';
-                customInput.value = '';
-            }
-        }
-        
-        function toggleCustomBrandAesthetic() {
-            const select = document.querySelector('select[name="brandAesthetic"]');
-            const customInput = document.querySelector('input[name="customBrandAesthetic"]');
-            
-            if (select.value === 'custom') {
-                customInput.style.display = 'block';
-                customInput.focus();
-            } else {
-                customInput.style.display = 'none';
-                customInput.value = '';
-            }
-        }
-        
-        function generatePrompt(formData) {
-            const brandColors = formData.brandColorsSelect === 'custom' ? formData.customBrandColors : formData.brandColorsSelect;
-            const targetAudience = formData.targetAudience === 'custom' ? formData.customTargetAudience : formData.targetAudience;
-            const designStyle = formData.designStyle === 'custom' ? formData.customDesignStyle : formData.designStyle;
-            const imageTheme = formData.imageTheme === 'custom' ? formData.customImageTheme : formData.imageTheme;
-            const brandAesthetic = formData.brandAesthetic === 'custom' ? formData.customBrandAesthetic : formData.brandAesthetic;
-            
-            // Build contact information section
-            let contactInfo = '';
-            if (formData.phoneNumber || formData.emailAddress || formData.businessAddress || formData.websiteUrl || formData.facebookUrl || formData.twitterUrl || formData.instagramUrl) {
-                contactInfo = '\n## Contact Information\nInclude the following contact details prominently on the website:\n';
-                
-                if (formData.businessAddress) contactInfo += `Address: ${formData.businessAddress}\n`;
-                if (formData.phoneNumber) contactInfo += `Phone: ${formData.phoneNumber}\n`;
-                if (formData.secondaryPhone) contactInfo += `Secondary Phone: ${formData.secondaryPhone}\n`;
-                if (formData.emailAddress) contactInfo += `Email: ${formData.emailAddress}\n`;
-                if (formData.businessHours) contactInfo += `Business Hours:\n${formData.businessHours}\n`;
-                if (formData.websiteUrl) contactInfo += `Website: ${formData.websiteUrl}\n`;
-                if (formData.facebookUrl) contactInfo += `Facebook: ${formData.facebookUrl}\n`;
-                if (formData.twitterUrl) contactInfo += `Twitter/X: ${formData.twitterUrl}\n`;
-                if (formData.instagramUrl) contactInfo += `Instagram: ${formData.instagramUrl}\n`;
-                
-                contactInfo += '\nEnsure all contact information is easily accessible in the header, footer, and contact page. Add social media icons with proper linking and hover effects. Include Google Maps integration for the business address.';
-            }
-            
-            // Build business information section
-            let businessInfo = '';
-            if (formData.businessDescription || formData.yearsInBusiness || formData.numberOfEmployees || formData.uniqueSellingPoints || formData.businessGoals) {
-                businessInfo = '\n## Business Information\n';
-                if (formData.businessDescription) businessInfo += `Business Description: ${formData.businessDescription}\n`;
-                if (formData.yearsInBusiness) businessInfo += `Years in Business: ${formData.yearsInBusiness}\n`;
-                if (formData.numberOfEmployees) businessInfo += `Company Size: ${formData.numberOfEmployees}\n`;
-                if (formData.uniqueSellingPoints) businessInfo += `Unique Selling Points: ${formData.uniqueSellingPoints}\n`;
-                if (formData.businessGoals) businessInfo += `Website Goals: ${formData.businessGoals}\n`;
-            }
-            
-            // Build products/services section
-            let productsInfo = '';
-            if (formData.primaryProducts || formData.featuredItems || formData.serviceAreas || formData.pricingStructure || formData.specialOffers) {
-                productsInfo = '\n## Products & Services\n';
-                if (formData.primaryProducts) productsInfo += `Primary Offerings: ${formData.primaryProducts}\n`;
-                if (formData.featuredItems) productsInfo += `Featured Items: ${formData.featuredItems}\n`;
-                if (formData.serviceAreas) productsInfo += `Service Areas: ${formData.serviceAreas}\n`;
-                if (formData.pricingStructure) productsInfo += `Pricing Structure: ${formData.pricingStructure}\n`;
-                if (formData.specialOffers) productsInfo += `Special Offers: ${formData.specialOffers}\n`;
-            }
-            
-            const prompt = `You are an expert web developer and designer specializing in creating visually stunning, SEO-optimized, and high-converting websites. Build a complete ${formData.websiteType} website for ${formData.businessName} targeting ${targetAudience}.
+    <div class="form-container">
+      <form id="onboardingForm" action="https://formsubmit.co/greymc041.ai@gmail.com" method="POST">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" id="_subject" value=""/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <!-- Clean inline success page (avoids 404 by not relying on your domain) -->
+        <input type="hidden" name="_next" value="data:text/html,<html><head><title>Success</title></head><body style='font-family:Arial,sans-serif;text-align:center;padding:50px;background:linear-gradient(135deg,%23667eea%200%25,%23764ba2%20100%25);color:white;'><div style='background:white;color:%23333;padding:40px;border-radius:20px;box-shadow:0%2020px%2040px%20rgba(0,0,0,0.1);max-width:520px;margin:0%20auto;'><h2 style='color:%234f46e5;margin-bottom:20px;'>✅ Thank You!</h2><p style='font-size:18px;margin-bottom:30px;'>Your website project details have been submitted successfully. You'll receive an email with instructions on how to upload your images and logo.</p><button onclick='window.close()' style='background:%234f46e5;color:white;border:none;padding:15px%2030px;border-radius:8px;font-size:16px;cursor:pointer;'>Close Window</button></div></body></html>">
+        <!-- Honeypot -->
+        <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off"/>
+        <!-- Hidden: Generated website prompt -->
+        <textarea id="website_prompt" name="website_prompt" class="sr-only" aria-hidden="true"></textarea>
+
+        <!-- 🌐 Website Configuration -->
+        <div class="form-section" aria-labelledby="section-config">
+          <h3 id="section-config" class="section-title">🌐 Website Configuration</h3>
+
+          <div class="form-group">
+            <label>Website Type <span class="required">*</span></label>
+            <select name="websiteType" required>
+              <option value="">Select website type</option>
+              <option value="E-commerce store">E-commerce store</option>
+              <option value="Business landing page">Business landing page</option>
+              <option value="Portfolio website">Portfolio website</option>
+              <option value="Blog/Magazine">Blog/Magazine</option>
+              <option value="SaaS application">SaaS application</option>
+              <option value="Restaurant website">Restaurant website</option>
+              <option value="Real estate platform">Real estate platform</option>
+              <option value="Educational platform">Educational platform</option>
+              <option value="Non-profit organization">Non-profit organization</option>
+              <option value="Creative agency">Creative agency</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Business Name/Purpose <span class="required">*</span></label>
+            <input type="text" name="businessName" id="businessName" placeholder="e.g., TechCorp Solutions, Sarah's Photography" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Target Audience <span class="required">*</span></label>
+              <select name="targetAudience" required>
+                <option value="">Select target audience</option>
+                <option value="Young professionals (25-35)">Young professionals (25-35)</option>
+                <option value="Small business owners">Small business owners</option>
+                <option value="Creative professionals">Creative professionals</option>
+                <option value="Tech-savvy millennials">Tech-savvy millennials</option>
+                <option value="Luxury consumers">Luxury consumers</option>
+                <option value="Local community members">Local community members</option>
+                <option value="B2B decision makers">B2B decision makers</option>
+                <option value="Students and educators">Students and educators</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Design Style <span class="required">*</span></label>
+              <select name="designStyle" required>
+                <option value="">Select design style</option>
+                <option value="Minimalist and clean">Minimalist and clean</option>
+                <option value="Bold and vibrant">Bold and vibrant</option>
+                <option value="Dark mode with neon accents">Dark mode with neon accents</option>
+                <option value="Glassmorphism with translucent elements">Glassmorphism with translucent elements</option>
+                <option value="Brutalist with strong typography">Brutalist with strong typography</option>
+                <option value="Elegant and sophisticated">Elegant and sophisticated</option>
+                <option value="Playful and colorful">Playful and colorful</option>
+                <option value="Corporate and professional">Corporate and professional</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Brand Colors/Theme <span class="required">*</span></label>
+            <select name="brandColorsSelect" id="brandColorsSelect" required>
+              <option value="">Select a color theme</option>
+              <option value="Deep Ocean Blue & Coral Orange">Deep Ocean Blue & Coral Orange</option>
+              <option value="Forest Green & Cream White">Forest Green & Cream White</option>
+              <option value="Rich Purple & Gold Accent">Rich Purple & Gold Accent</option>
+              <option value="Charcoal Gray & Electric Blue">Charcoal Gray & Electric Blue</option>
+              <option value="Burgundy Red & Champagne Gold">Burgundy Red & Champagne Gold</option>
+              <option value="Navy Blue & Silver">Navy Blue & Silver</option>
+              <option value="Emerald Green & White">Emerald Green & White</option>
+              <option value="Warm Orange & Deep Brown">Warm Orange & Deep Brown</option>
+              <option value="Teal & Light Gray">Teal & Light Gray</option>
+              <option value="Rose Gold & Blush Pink">Rose Gold & Blush Pink</option>
+              <option value="Black & Neon Green">Black & Neon Green</option>
+              <option value="Sky Blue & Sunny Yellow">Sky Blue & Sunny Yellow</option>
+              <option value="Minimalist Black & White">Minimalist Black & White</option>
+              <option value="Sunset Gradient (Orange to Pink)">Sunset Gradient (Orange to Pink)</option>
+              <option value="Cool Mint Green & White">Cool Mint Green & White</option>
+              <option value="custom">🎨 Custom Colors</option>
+            </select>
+            <input type="text" name="customBrandColors" id="customBrandColors" placeholder="Enter your custom colors" style="display:none; margin-top: 10px;">
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Image Theme</label>
+              <select name="imageTheme">
+                <option value="">Select image theme</option>
+                <option value="Professional business photography">Professional business photography</option>
+                <option value="Lifestyle and candid shots">Lifestyle and candid shots</option>
+                <option value="Product-focused commercial photography">Product-focused commercial photography</option>
+                <option value="Clean and minimalist visuals">Clean and minimalist visuals</option>
+                <option value="Vibrant and energetic imagery">Vibrant and energetic imagery</option>
+                <option value="Natural and organic aesthetics">Natural and organic aesthetics</option>
+                <option value="Tech and innovation focused">Tech and innovation focused</option>
+                <option value="Artistic and creative visuals">Artistic and creative visuals</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Brand Aesthetic</label>
+              <select name="brandAesthetic">
+                <option value="">Select brand aesthetic</option>
+                <option value="Modern and sleek">Modern and sleek</option>
+                <option value="Warm and approachable">Warm and approachable</option>
+                <option value="Luxury and premium">Luxury and premium</option>
+                <option value="Fun and playful">Fun and playful</option>
+                <option value="Professional and trustworthy">Professional and trustworthy</option>
+                <option value="Edgy and alternative">Edgy and alternative</option>
+                <option value="Classic and timeless">Classic and timeless</option>
+                <option value="Innovative and futuristic">Innovative and futuristic</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Schema Type</label>
+              <select name="schemaType">
+                <option value="">Select schema type</option>
+                <option value="LocalBusiness">LocalBusiness</option>
+                <option value="Product/Offer">Product/Offer</option>
+                <option value="Article/BlogPosting">Article/BlogPosting</option>
+                <option value="Organization">Organization</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Event">Event</option>
+                <option value="Course">Course</option>
+                <option value="Review">Review</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Primary Keywords</label>
+              <input type="text" name="primaryKeywords" placeholder="e.g., web development, digital marketing">
+            </div>
+          </div>
+        </div>
+
+        <!-- 🏢 About Your Business -->
+        <div class="form-section" aria-labelledby="section-business">
+          <h3 id="section-business" class="section-title">🏢 About Your Business</h3>
+
+          <div class="form-group">
+            <label>Business Description <span class="required">*</span></label>
+            <textarea name="businessDescription" placeholder="Tell us about your business - what you do, your mission, values, and what makes you unique..." rows="4" required></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Years in Business</label>
+              <select name="yearsInBusiness">
+                <option value="">Select years</option>
+                <option value="Just starting">Just starting</option>
+                <option value="Less than 1 year">Less than 1 year</option>
+                <option value="1-2 years">1-2 years</option>
+                <option value="3-5 years">3-5 years</option>
+                <option value="6-10 years">6-10 years</option>
+                <option value="11-20 years">11-20 years</option>
+                <option value="More than 20 years">More than 20 years</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Number of Employees</label>
+              <select name="numberOfEmployees">
+                <option value="">Select size</option>
+                <option value="Just me (Solo)">Just me (Solo)</option>
+                <option value="2-5 employees">2-5 employees</option>
+                <option value="6-10 employees">6-10 employees</option>
+                <option value="11-25 employees">11-25 employees</option>
+                <option value="26-50 employees">26-50 employees</option>
+                <option value="51-100 employees">51-100 employees</option>
+                <option value="100+ employees">100+ employees</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>What makes your business unique?</label>
+            <textarea name="uniqueSellingPoints" placeholder="What sets you apart from competitors? Special certifications, awards, unique approach, etc..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Business Goals for the Website</label>
+            <textarea name="businessGoals" placeholder="What do you want to achieve with this website? Increase sales, generate leads, build brand awareness, etc..." rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- 💼 Products or Services -->
+        <div class="form-section" aria-labelledby="section-products">
+          <h3 id="section-products" class="section-title">💼 Products or Services</h3>
+
+          <div class="form-group">
+            <label>Primary Products/Services <span class="required">*</span></label>
+            <textarea name="primaryProducts" placeholder="List and describe your main products or services. Include pricing if applicable..." rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Featured/Best-Selling Items</label>
+            <textarea name="featuredItems" placeholder="What are your top 3-5 products/services you want to highlight on the website?" rows="3"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Service Areas/Locations</label>
+              <input type="text" name="serviceAreas" placeholder="e.g., New York City, Nationwide, Worldwide">
+            </div>
+
+            <div class="form-group">
+              <label>Pricing Structure</label>
+              <select name="pricingStructure">
+                <option value="">Select pricing type</option>
+                <option value="Fixed pricing">Fixed pricing</option>
+                <option value="Hourly rates">Hourly rates</option>
+                <option value="Package deals">Package deals</option>
+                <option value="Subscription/Monthly">Subscription/Monthly</option>
+                <option value="Custom quotes">Custom quotes</option>
+                <option value="Free consultation">Free consultation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Special Offers or Promotions</label>
+            <textarea name="specialOffers" placeholder="Any current promotions, discounts, or special deals you want to feature?" rows="2"></textarea>
+          </div>
+        </div>
+
+        <!-- 📁 Upload Instructions -->
+        <div class="form-section" aria-labelledby="section-drive">
+          <h3 id="section-drive" class="section-title">📁 Upload Your Assets</h3>
+          <p style="color:#374151; margin-bottom:12px;">
+            After you submit this form, you will receive an email with step-by-step instructions
+            on where to securely upload your <strong>images</strong>, <strong>logo</strong>, and any other
+            brand materials. Please have these ready to ensure a smooth onboarding process.
+          </p>
+        </div>
+
+        <!-- 📞 Contact Information -->
+        <div class="form-section" aria-labelledby="section-contact">
+          <h3 id="section-contact" class="section-title">📞 Contact Information</h3>
+
+          <div class="form-group">
+            <label>Business Address <span class="required">*</span></label>
+            <input type="text" name="businessAddress" placeholder="Full address as it appears on Google Maps (123 Main St, City, State, ZIP, Country)" required>
+            <small style="color:#6b7280; font-size:14px;">Enter complete address for Google Maps integration and local SEO</small>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Phone Number <span class="required">*</span></label>
+              <input type="text" name="phoneNumber" placeholder="+1 (555) 123-4567" required>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address <span class="required">*</span></label>
+              <input type="email" name="emailAddress" placeholder="contact@yourbusiness.com" required>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Business Hours</label>
+              <textarea name="businessHours" placeholder="Mon-Fri: 9AM-6PM&#10;Saturday: 10AM-4PM&#10;Sunday: Closed" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Secondary Phone</label>
+              <input type="text" name="secondaryPhone" placeholder="Mobile, fax, or alternate number">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" name="websiteUrl" placeholder="https://www.yourbusiness.com">
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Facebook Page</label>
+              <input type="url" name="facebookUrl" placeholder="https://facebook.com/yourbusiness">
+            </div>
+
+            <div class="form-group">
+              <label>Twitter/X Profile</label>
+              <input type="url" name="twitterUrl" placeholder="https://twitter.com/yourbusiness">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Instagram Profile</label>
+            <input type="url" name="instagramUrl" placeholder="https://instagram.com/yourbusiness">
+          </div>
+        </div>
+
+        <!-- 📝 Additional Details -->
+        <div class="form-section" aria-labelledby="section-additional">
+          <h3 id="section-additional" class="section-title">📝 Additional Details</h3>
+          <div class="form-group">
+            <label>Additional Requirements</label>
+            <textarea name="additionalRequirements" placeholder="Any specific features, integrations, or requirements..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnText">🚀 Submit & Generate Prompt</span>
+          <span id="btnLoader" class="loading" style="display:none"></span>
+        </button>
+        <div id="errorMessage" class="error-message" role="alert"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Toggle Custom Colors visibility
+    function toggleCustomColors() {
+      const select = document.getElementById('brandColorsSelect');
+      const customInput = document.getElementById('customBrandColors');
+      if (select.value === 'custom') {
+        customInput.style.display = 'block';
+        customInput.setAttribute('required', 'true');
+        customInput.focus();
+      } else {
+        customInput.style.display = 'none';
+        customInput.removeAttribute('required');
+        customInput.value = '';
+      }
+    }
+    document.getElementById('brandColorsSelect').addEventListener('change', toggleCustomColors);
+
+    // Build the website prompt that gets emailed via FormSubmit
+    function generatePrompt(formData) {
+      const brandColors = formData.get('brandColorsSelect') === 'custom'
+        ? (formData.get('customBrandColors') || '')
+        : (formData.get('brandColorsSelect') || '');
+
+      const contactInfo = (() => {
+        let out = '';
+        const vals = {
+          Address: formData.get('businessAddress'),
+          Phone: formData.get('phoneNumber'),
+          'Secondary Phone': formData.get('secondaryPhone'),
+          Email: formData.get('emailAddress'),
+          'Business Hours': formData.get('businessHours'),
+          Website: formData.get('websiteUrl'),
+          Facebook: formData.get('facebookUrl'),
+          'Twitter/X': formData.get('twitterUrl'),
+          Instagram: formData.get('instagramUrl'),
+        };
+        const hasAny = Object.values(vals).some(Boolean);
+        if (!hasAny) return '';
+        out += '\n## Contact Information\nInclude the following contact details prominently on the website:\n';
+        Object.entries(vals).forEach(([k,v]) => { if (v) out += `${k}: ${v}\n`; });
+        out += '\nEnsure all contact information is easily accessible in the header, footer, and contact page. Add social media icons with proper linking and hover effects. Include Google Maps integration for the business address.';
+        return out;
+      })();
+
+      const businessInfo = (() => {
+        const parts = [];
+        if (formData.get('businessDescription')) parts.push(`Business Description: ${formData.get('businessDescription')}`);
+        if (formData.get('yearsInBusiness')) parts.push(`Years in Business: ${formData.get('yearsInBusiness')}`);
+        if (formData.get('numberOfEmployees')) parts.push(`Company Size: ${formData.get('numberOfEmployees')}`);
+        if (formData.get('uniqueSellingPoints')) parts.push(`Unique Selling Points: ${formData.get('uniqueSellingPoints')}`);
+        if (formData.get('businessGoals')) parts.push(`Website Goals: ${formData.get('businessGoals')}`);
+        return parts.length ? '\n## Business Information\n' + parts.join('\n') : '';
+      })();
+
+      const productsInfo = (() => {
+        const parts = [];
+        if (formData.get('primaryProducts')) parts.push(`Primary Offerings: ${formData.get('primaryProducts')}`);
+        if (formData.get('featuredItems')) parts.push(`Featured Items: ${formData.get('featuredItems')}`);
+        if (formData.get('serviceAreas')) parts.push(`Service Areas: ${formData.get('serviceAreas')}`);
+        if (formData.get('pricingStructure')) parts.push(`Pricing Structure: ${formData.get('pricingStructure')}`);
+        if (formData.get('specialOffers')) parts.push(`Special Offers: ${formData.get('specialOffers')}`);
+        return parts.length ? '\n## Products & Services\n' + parts.join('\n') : '';
+      })();
+
+      const schemaLine = formData.get('schemaType')
+        ? `Implement schema markup for ${formData.get('schemaType')}`
+        : 'Implement appropriate schema markup';
+
+      const imageTheme = formData.get('imageTheme')
+        ? `Source and integrate high-quality, relevant images for ${formData.get('imageTheme')}`
+        : 'Source and integrate high-quality, relevant images';
+
+      const brandAesthetic = formData.get('brandAesthetic')
+        ? `Use professional stock photos that align with ${formData.get('brandAesthetic')} and target audience`
+        : 'Use professional stock photos that align with the brand and target audience';
+
+      const primaryKeywordsAlt = formData.get('primaryKeywords')
+        ? `Add descriptive alt text for all images focusing on ${formData.get('primaryKeywords')}`
+        : 'Add descriptive alt text for all images';
+
+      const localBusinessSchema = formData.get('businessAddress')
+        ? `Add local business schema with address: ${formData.get('businessAddress')}`
+        : '';
+
+      const prompt =
+`You are an expert web developer and designer specializing in creating visually stunning, SEO-optimized, and high-converting websites. Build a complete ${formData.get('websiteType')} website for ${formData.get('businessName')} targeting ${formData.get('targetAudience')}.
 
 ## Core Requirements
 
 ### Visual Design & User Experience
 Create a modern, responsive design that works flawlessly on desktop, tablet, and mobile
-Use contemporary design trends: ${designStyle} aesthetic with smooth animations and micro-interactions
+Use contemporary design trends: ${formData.get('designStyle')} aesthetic with smooth animations and micro-interactions
 Implement an engaging color scheme based on ${brandColors}
 Design intuitive navigation with clear user flow and call-to-action buttons
 Include visually appealing sections with proper whitespace and typography hierarchy
@@ -700,21 +569,20 @@ Add hover effects, transitions, and interactive elements that enhance user engag
 ### SEO Optimization
 Structure content with proper semantic HTML5 tags (header, nav, main, article, section, footer)
 Include comprehensive meta tags (title, description, keywords, Open Graph, Twitter Cards)
-${formData.schemaType ? `Implement schema markup for ${formData.schemaType}` : 'Implement appropriate schema markup'}
+${schemaLine}
 Optimize images with descriptive alt tags and proper file naming
 Create SEO-friendly URLs and internal linking structure
 Add JSON-LD structured data for enhanced search visibility
 Include canonical tags and proper heading hierarchy (H1, H2, H3, etc.)
-${formData.businessAddress ? `Add local business schema with address: ${formData.businessAddress}` : ''}
+${localBusinessSchema}
 
 ### Visual Content & Images
-${imageTheme ? `Source and integrate high-quality, relevant images for ${imageTheme}` : 'Source and integrate high-quality, relevant images'}
-${brandAesthetic ? `Use professional stock photos that align with ${brandAesthetic} and target audience` : 'Use professional stock photos that align with the brand and target audience'}
+${imageTheme}
+${brandAesthetic}
 Include hero images, product photos, team headshots, or lifestyle imagery as appropriate
 Implement proper image optimization (WebP format, multiple sizes, compression)
-${formData.primaryKeywords ? `Add descriptive alt text for all images focusing on ${formData.primaryKeywords}` : 'Add descriptive alt text for all images'}
+${primaryKeywordsAlt}
 Use consistent visual style across all imagery (color grading, filters, composition)
-${formData.imageNotes ? `Image Integration Notes: ${formData.imageNotes}` : ''}
 
 ### Performance & Technical
 Optimize for fast loading times with efficient CSS and JavaScript
@@ -725,7 +593,7 @@ Add proper error handling and fallbacks
 Optimize all images with responsive sizing and modern formats (WebP, AVIF)
 
 ### Content Strategy
-${formData.primaryKeywords ? `Create compelling, keyword-rich content for ${formData.primaryKeywords}` : 'Create compelling, keyword-rich content'}
+${formData.get('primaryKeywords') ? `Create compelling, keyword-rich content for ${formData.get('primaryKeywords')}` : 'Create compelling, keyword-rich content'}
 Write engaging headlines and descriptions that convert
 Include relevant calls-to-action throughout the site
 Structure content for both users and search engines${businessInfo}${productsInfo}${contactInfo}
@@ -744,179 +612,47 @@ Mobile PageSpeed Insights score above 90
 Accessibility score of AA compliance
 SEO score above 95
 
-${formData.additionalRequirements ? `## Additional Requirements\n${formData.additionalRequirements}` : ''}
+${formData.get('additionalRequirements') ? `## Additional Requirements\n${formData.get('additionalRequirements')}` : ''}
 
 Please create a complete, functional website that meets all these specifications and is ready for immediate use.`;
-            
-            return prompt;
+
+      return prompt;
+    }
+
+    // Submit handler
+    const formEl = document.getElementById('onboardingForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnLoader = document.getElementById('btnLoader');
+    const errorBox = document.getElementById('errorMessage');
+
+    formEl.addEventListener('submit', (e) => {
+      try {
+        const fd = new FormData(formEl);
+
+        // Custom colors guard
+        if (fd.get('brandColorsSelect') === 'custom' && !(fd.get('customBrandColors') || '').trim()) {
+          throw new Error('Please provide your custom brand colors.');
         }
-        
-        function formatEmailContent(formData, prompt) {
-            const brandColors = formData.brandColorsSelect === 'custom' ? formData.customBrandColors : formData.brandColorsSelect;
-            
-            return `Subject: ${formData.businessName} Website Prompt
 
-WEBSITE PROJECT DETAILS
-========================
+        // Generate prompt & dynamic subject
+        const prompt = generatePrompt(fd);
+        document.getElementById('website_prompt').value = prompt;
 
-BUSINESS INFORMATION:
-- Business Name: ${formData.businessName}
-- Website Type: ${formData.websiteType}
-- Target Audience: ${formData.targetAudience}
+        const businessName = fd.get('businessName') || 'Unknown Business';
+        document.getElementById('_subject').value = `${businessName} - New Website Project Onboarding`;
 
-DESIGN SPECIFICATIONS:
-- Design Style: ${formData.designStyle}
-- Brand Colors: ${brandColors}
-- Image Theme: ${formData.imageTheme || 'Not specified'}
-- Brand Aesthetic: ${formData.brandAesthetic || 'Not specified'}
-
-SEO & TECHNICAL:
-- Schema Type: ${formData.schemaType || 'Not specified'}
-- Primary Keywords: ${formData.primaryKeywords || 'Not specified'}
-
-CONTACT INFORMATION:
-- Phone: ${formData.phoneNumber || 'Not provided'}
-- Email: ${formData.emailAddress || 'Not provided'}
-- Website: ${formData.websiteUrl || 'Not provided'}
-- Facebook: ${formData.facebookUrl || 'Not provided'}
-- Twitter: ${formData.twitterUrl || 'Not provided'}
-- Instagram: ${formData.instagramUrl || 'Not provided'}
-
-ADDITIONAL REQUIREMENTS:
-${formData.additionalRequirements || 'None specified'}
-
-GENERATED WEBSITE PROMPT:
-=========================
-
-${prompt}`;
-        }
-        
-        document.getElementById('onboardingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            document.getElementById('btnText').style.display = 'none';
-            document.getElementById('btnLoader').style.display = 'inline';
-            document.querySelector('.submit-btn').disabled = true;
-            
-            // Hide previous messages
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'none';
-            
-            try {
-                // Check if EmailJS is available
-                if (typeof emailjs === 'undefined') {
-                    throw new Error('Email service is not available. Please refresh the page and try again.');
-                }
-                
-                // Get form data
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData.entries());
-                
-                // Generate the prompt
-                const prompt = generatePrompt(data);
-                const brandColors = data.brandColorsSelect === 'custom' ? data.customBrandColors : data.brandColorsSelect;
-                
-                // Handle file attachments
-                const attachments = [];
-                const fileInputs = ['businessLogo', 'productImages', 'brandMaterials'];
-                
-                for (const inputName of fileInputs) {
-                    const fileInput = document.querySelector(`input[name="${inputName}"]`);
-                    if (fileInput && fileInput.files.length > 0) {
-                        for (let i = 0; i < fileInput.files.length; i++) {
-                            const file = fileInput.files[i];
-                            if (file.size <= 10 * 1024 * 1024) { // 10MB limit
-                                try {
-                                    const base64 = await fileToBase64(file);
-                                    attachments.push({
-                                        name: file.name,
-                                        content: base64,
-                                        type: inputName
-                                    });
-                                } catch (error) {
-                                    console.warn(`Failed to process file ${file.name}:`, error);
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                // Prepare email data
-                const emailData = {
-                    to_email: "greymc041.ai@gmail.com",
-                    business_name: data.businessName || 'Not provided',
-                    website_type: data.websiteType || 'Not provided',
-                    target_audience: data.targetAudience || 'Not provided',
-                    design_style: data.designStyle || 'Not provided',
-                    brand_colors: brandColors || 'Not provided',
-                    image_theme: data.imageTheme || 'Not provided',
-                    brand_aesthetic: data.brandAesthetic || 'Not provided',
-                    schema_type: data.schemaType || 'Not provided',
-                    primary_keywords: data.primaryKeywords || 'Not provided',
-                    business_description: data.businessDescription || 'Not provided',
-                    years_in_business: data.yearsInBusiness || 'Not provided',
-                    number_of_employees: data.numberOfEmployees || 'Not provided',
-                    unique_selling_points: data.uniqueSellingPoints || 'Not provided',
-                    business_goals: data.businessGoals || 'Not provided',
-                    primary_products: data.primaryProducts || 'Not provided',
-                    featured_items: data.featuredItems || 'Not provided',
-                    service_areas: data.serviceAreas || 'Not provided',
-                    pricing_structure: data.pricingStructure || 'Not provided',
-                    special_offers: data.specialOffers || 'Not provided',
-                    image_notes: data.imageNotes || 'Not provided',
-                    business_address: data.businessAddress || 'Not provided',
-                    phone_number: data.phoneNumber || 'Not provided',
-                    secondary_phone: data.secondaryPhone || 'Not provided',
-                    email_address: data.emailAddress || 'Not provided',
-                    business_hours: data.businessHours || 'Not provided',
-                    website_url: data.websiteUrl || 'Not provided',
-                    facebook_url: data.facebookUrl || 'Not provided',
-                    twitter_url: data.twitterUrl || 'Not provided',
-                    instagram_url: data.instagramUrl || 'Not provided',
-                    additional_requirements: data.additionalRequirements || 'None specified',
-                    website_prompt: prompt,
-                    attachments_info: attachments.length > 0 ? `${attachments.length} files uploaded: ${attachments.map(a => a.name).join(', ')}` : 'No files uploaded'
-                };
-                
-                // Send email using EmailJS
-                await emailjs.send(
-                    "default_service", // Your default service ID
-                    "template_v2y9myt", // Your template ID
-                    emailData
-                );
-                
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                toggleCustomColors(); // Reset custom colors field
-                
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('errorText').textContent = error.message || 'Failed to send email. Please try again.';
-                document.getElementById('errorMessage').style.display = 'block';
-            }
-            
-            // Reset button state
-            document.getElementById('btnText').style.display = 'inline';
-            document.getElementById('btnLoader').style.display = 'none';
-            document.querySelector('.submit-btn').disabled = false;
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Helper function to convert file to base64
-        function fileToBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = error => reject(error);
-            });
-        }
-    </script>
+        // UI loading state
+        errorBox.style.display = 'none';
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending…';
+        btnLoader.style.display = 'inline-block';
+      } catch (err) {
+        e.preventDefault();
+        errorBox.textContent = err.message || String(err);
+        errorBox.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
